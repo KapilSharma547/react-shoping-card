@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import './cart.css'
 import { products } from './products';
 import ContextCart from './ContextCart';
@@ -50,6 +50,17 @@ const Cart = () => {
       });
       
     };
+
+    //we will use the useEffect to uptodate the data
+    useEffect(()=>{
+        dispatch ({type:"GET_TOTAL" }); 
+        //console.log('whatshup')
+    },[state.item]);
+
+
+
+
+
     return (
         <CartContext.Provider value={{ ...state, removeItem, clearCart, increment , decrement }}>
             <ContextCart />

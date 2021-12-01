@@ -6,7 +6,7 @@ import { CartContext } from './Cart'
 const ContextCart = () => {
     //const [item, setItem] = useState(products);
 
-    const { item, clearCart } = useContext(CartContext);
+    const { item, totalItem,totalAmount, clearCart } = useContext(CartContext);
 
     if (item.length === 0) {
         return (
@@ -40,13 +40,13 @@ const ContextCart = () => {
 
                         <div className="cart-icon">
                             <img src="./images/cart.png" alt="cart" />
-                            <p>7</p>
+                            <p> {totalItem} </p>
 
                         </div>
                     </header>
                     <section className="main-cart-section">
                         <h1> shoping Cart</h1>
-                        <p className="total-items">you have <span className='total-items-count'> 7</span> item in shoping cart</p>
+                        <p className="total-items">you have <span className='total-items-count'> { totalItem } </span> item in shoping cart</p>
 
                         <div className="cart-items">
 
@@ -63,7 +63,7 @@ const ContextCart = () => {
 
                         </div>
                         <div className="card-total">
-                            <h3>Cart Total : <span>220000rs</span></h3>
+                            <h3>Cart Total : <span>{totalAmount}rs </span></h3>
                             <button>Chekout</button>
                             <button className='clear-cart' onClick={clearCart}>Clear Cart</button>
                         </div>
